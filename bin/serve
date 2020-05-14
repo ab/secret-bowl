@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/secret-bowl'
+
+if ARGV.include?('-h') || ARGV.include?('--help')
+  STDERR.puts "Usage: #{File.basename($0)} [BIND_ADDR [BIND_PORT]]"
+  exit 1
+end
+
+SecretBowl::Server.set :bind, ARGV.fetch(0) if ARGV[0]
+SecretBowl::Server.set :port, ARGV.fetch(1) if ARGV[1]
+
+SecretBowl::Server.run!

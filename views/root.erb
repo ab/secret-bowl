@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Secret Bowl</title>
+<%= erb :'partials/header' %>
+  </head>
+  <body>
+    <%= erb :'partials/bodyheader' %>
+
+    <h1>Secret Bowl<%= escape(@path ? ": " + @path : '') %></h1>
+    <p>
+      The secret bowl accepts a series of submissions and returns them one by
+      one in random drawings.
+
+      Once all entries have been viewed, it will restart with a new
+      permutation.
+    </p>
+    <form method="post" action="/bowl">
+      <input type="text" name="key" placeholder="Key (optional)" />
+      <br />
+      <button type="submit" name="action" value="once">Create a new bowl</button>
+    </form>
+  </body>
+</html>
+<% # vim: set ft=eruby sw=2 ts=2 tw=79: %>

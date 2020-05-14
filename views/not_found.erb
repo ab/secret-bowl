@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Secret Bowl - Not Found</title>
+<%= erb :'partials/header' %>
+  </head>
+  <body>
+    <%= erb :'partials/bodyheader' %>
+
+    <h1>Not Found</h1>
+    <p>
+      The secret bowl facilitates card drawings.
+    </p>
+    <p>
+      Not found!
+    </p>
+    <img src="/img/notfound.jpg" alt="lorax" />
+    <% # TODO: find a good UNLESS image %>
+    <p>
+      <form><button formaction="../">Go back</button></form>
+    </p>
+  </body>
+</html>
+<% # vim: set ft=eruby sw=2 ts=2 tw=79: %>

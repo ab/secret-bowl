@@ -1,0 +1,22 @@
+
+
+- Create a bowl
+    => random URL
+
+- GET /bowl/<id>/
+
+
+- POST /bowl/<id>/add
+    => add a word to the bowl
+
+- POST /bowl/<id>/next
+    => read the next word from the bowl
+
+- POST /bowl/<id>/clear
+    => wipe all entries from the bowl
+
+
+nice-to-haves:
+    name of person submitting cards
+
+

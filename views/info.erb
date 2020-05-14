@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Secret Bowl: <%= escape @bowl.key %></title>
+      <style type="text/css">
+      #card {
+        border: 1px solid #ccc;
+        padding: 1em;
+        display: table;
+      }
+    </style>
+<%= erb :'partials/header' %>
+  </head>
+  <body>
+    <%= erb :'partials/bodyheader' %>
+
+    <h1>Secret Bowl: <%= escape @bowl.key %></h1>
+    <h3>
+      <% if @bowl.empty? %>
+        Your bowl is hungry. Add cards!
+      <% else %>
+      Bowl contains <%= @bowl.size %> cards
+        (<%= @bowl.content.size %> new, <%= @bowl.seen_content.size %> seen)
+      <% end %>
+    </h3>
+
+    <br>
+
+    <form method="post" action="./next">
+      <button type="submit">Draw a card!</button>
+    </form>
+
+    <% if @item_text %>
+      <h3>
+        You drew: <pre id=card><%= escape @item_text %></pre>
+      </h3>
+    <% end %>
+
+    <% if @draw_err %>
+      <h3>
+        <%= @draw_err %>
+      </h3>
+    <% end %>
+
+    <br><br>
+
+    <form method="post" action="./add">
+      <input type="text" name="text" placeholder="Something brilliant" />
+      <button type="submit">Add card</button>
+    </form>
+
+    <br><br>
+
+    <p>This bowl was created from <%= escape @bowl.remote_host %> at <%= Time.at(@bowl.created) %></p>
+
+    <p>
+      <form><button formaction="../../">Make a new bowl</button></form>
+    </p>
+  </body>
+</html>
+<% # vim: set ft=eruby sw=2 ts=2 tw=79: %>
