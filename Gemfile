@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.6.0'
+ruby '~> 4.0'
 
-gem 'sinatra'
-gem 'thin'
+gem 'puma'
 gem 'rack-ssl-enforcer'
+gem 'rackup'
+gem 'sinatra'
